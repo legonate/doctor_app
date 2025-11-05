@@ -1,10 +1,17 @@
-package edu.secourse.patientportal.services;
+package edu.secourse.patientportal.models;
 
 public class User {
     private int sessionID;
     private String username;
     private String address;
     private String dob;
+
+    public User(int sessionID, String username, String address, String dob) {
+        this.sessionID = sessionID;
+        this.username = username;
+        this.address = address;
+        this.dob = dob;
+    }
 
     // Getter and Setter for sessionID
     public int getSessionID() {

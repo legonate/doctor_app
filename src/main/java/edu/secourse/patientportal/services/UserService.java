@@ -1,5 +1,6 @@
 package edu.secourse.patientportal.services;
 
+import edu.secourse.patientportal.models.*;
 import java.util.ArrayList;
 
 public class UserService {
