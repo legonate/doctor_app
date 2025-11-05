@@ -1,4 +1,4 @@
-package edu.secourse.patientportal.models;
+package edu.secourse.patientportal.services;
 
 public class User {
     private int account_number;
