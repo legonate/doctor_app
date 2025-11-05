@@ -6,12 +6,6 @@ public class User {
     private String address;
     private String dob;
 
-    public User(String username, String address, String dob) {
-        this. username = username;
-        this.address = address;
-        this.dob = dob;
-    }
-
     // Getter and Setter for sessionID
     public int getSessionID() {
         return sessionID;
