@@ -4,7 +4,7 @@ package edu.secourse;
 
 import java.time.LocalDateTime;
 
-public class Appointment {
+public class Appointment.java {
     private static int counter = 1; // auto-generate unique IDs
     private int appointmentId;
     private String patientName;
