@@ -6,38 +6,58 @@ public class User {
     private String address;
     private String dob;
 
-    // Getter and Setter for sessionID
+    /**
+     * @return the sessionID
+     */
     public int getSessionID() {
         return sessionID;
     }
 
+    /**
+     * Sets sessionID
+     */
     public void setSessionID(int sessionID) {
         this.sessionID = sessionID;
     }
 
-    // Getter and Setter for username
+    /**
+     * @return the username
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Sets username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
-    // Getter and Setter for address
+    /**
+     * @return the address
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * Sets address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
-    // Getter and Setter for dob
+    /**
+     * @return the date of birth
+     */
     public String getDob() {
         return dob;
     }
 
+    /**
+     * Sets DOB
+     */
     public void setDob(String dob) {
         this.dob = dob;
     }

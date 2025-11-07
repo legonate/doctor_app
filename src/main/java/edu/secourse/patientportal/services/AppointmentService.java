@@ -26,7 +26,7 @@ public class AppointmentService {
      */
     public boolean cancelAppointment(int appointmentId) {
         for (Appointment appt : appointments) {
-            if (appt.getAppointmentId() == appointmentId && appt.getStatus().equals("active")) {
+            if (apptn.getAppointmentId() == appointmetId && appt.getStatus().equals("active")) {
                 appt.setStatus("canceled");
                 return true;
             }
