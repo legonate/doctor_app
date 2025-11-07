@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class UserService {
     ArrayList<User> userArr;
-    UserService us = new UserService();
 
     public UserService() {
         userArr = new ArrayList<>();

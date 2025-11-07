@@ -18,21 +18,21 @@ public class Main {
         // Main loop
         do {
             // Admin view
-            System.out.println("Welcome to Doctor App (tm)! \n Please enter a command to continue:");
+            System.out.println("Welcome to Doctor App! \n Please enter a command to continue");
             System.out.print("""
                     list patients
                     list doctors
                     create patient (implemented)
                     create doctor  (implemented)
                     exit
-                    """);
+                    > """);
             String input = sc.nextLine();
-            if (input.equals("create patient")) {
-                uc.createPatient();
-            } else if (input.equals("create doctor")) {
-                uc.createDoctor();
-            } else if (input.equals("exit")) {
-                continueProgram = false;
+            switch (input) {
+                case "create patient" -> uc.createPatient();
+                case "create doctor" -> uc.createDoctor();
+                case "list patients" -> uc.listPatients();
+                case "list doctors" -> uc.listDoctors();
+                case "exit" -> continueProgram = false;
             }
         } while (continueProgram);
     }

@@ -44,6 +44,7 @@ public class UserController {
     }
 
     public void listPatients() {
+        System.out.println("Patients:");
         for (User user : this.us.getUsers()) {
             if (user instanceof Patient) {
                 System.out.println(user.getName());
@@ -51,6 +52,7 @@ public class UserController {
         }
     }
     public void listDoctors() {
+        System.out.println("Doctors:");
         for (User user : this.us.getUsers()) {
             if (user instanceof Doctor) {
                 System.out.println(user.getName());
