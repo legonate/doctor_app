@@ -8,6 +8,18 @@ public class User {
     private String name;
     private String password;
 
+    /**
+     * @return the sessionID
+     */
+    public int getSessionID() {
+        return sessionID;
+    }
+
+    /**
+     * Sets sessionID
+     */
+    public void setSessionID(int sessionID) {
+        this.sessionID = sessionID;
     // Constructor
     public User(int account_number, String username, String email_address, String role, String name, String password) {
         this.account_number = account_number;
@@ -27,15 +39,46 @@ public class User {
         this.account_number = account_number;
     }
 
-    // Getter and Setter for username
+    /**
+     * @return the username
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Sets username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Sets address
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * @return the date of birth
+     */
+    public String getDob() {
+        return dob;
+    }
+
+    /**
+     * Sets DOB
+     */
+    public void setDob(String dob) {
+        this.dob = dob;
     // Getter and Setter for email_address
     public String getEmailAddress() {
         return email_address;
