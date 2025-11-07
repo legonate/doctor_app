@@ -15,7 +15,15 @@ public class UserService {
         return (ArrayList<User>)userArr.clone();
     }
 
-    public void addUser(User user) {
+    public User addDoctor(String username, String email_address, String role, String name, String password) {
+        User user = new User(userArr.size(), username, email_address, role, name, password);
         userArr.add(user);
+        return user;
+    }
+
+    public User addPatient(String username, String email_address, String role, String name, String password) {
+        User user = new User(userArr.size(), username, email_address, role, name, password);
+        userArr.add(user);
+        return user;
     }
 }

@@ -10,14 +10,11 @@ public class UserController {
         us = new UserService();
     }
 
-    public Doctor createDoctor(String username, String address, String dob) {
-        Doctor d = new Doctor(1, username, address, dob);
-        this.us.addUser(d);
-        return d;
+    public void createDoctor(String username, String email_address, String role, String name, String password) {
+        this.us.addDoctor(username, email_address, role, name, password);
     }
-    public Patient createPatient(String username, String address, String dob) {
-        Patient p = new Patient(1, username, address, dob);
-        this.us.addUser(p);
-        return p;
+
+    public void createPatient(String username, String email_address, String role, String name, String password) {
+        this.us.addDoctor(username, email_address, role, name, password);
     }
 }
