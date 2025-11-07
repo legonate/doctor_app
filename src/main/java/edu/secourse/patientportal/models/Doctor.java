@@ -2,7 +2,7 @@ package edu.secourse.patientportal.models;
 
 public class Doctor extends User {
 
-    public Doctor(int sessionID, String username, String address, String dob) {
-        super(sessionID, username, address, dob);  // Call parent constructor
+    public Doctor(int account_number, String username, String email_address, String role, String name, String password) {
+        super(account_number, username, email_address, role, name, password);  // Call User constructor
     }
 }
