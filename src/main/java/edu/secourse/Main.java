@@ -20,11 +20,7 @@ public class Main {
             // Admin view
             System.out.println("Welcome to Doctor App! \n Please enter a command to continue");
             System.out.print("""
-                    list patients
-                    list doctors
-                    create patient (implemented)
-                    create doctor  (implemented)
-                    exit
+                    list patients | list doctors | create patient | create doctor| exit
                     > """);
             String input = sc.nextLine();
             switch (input) {

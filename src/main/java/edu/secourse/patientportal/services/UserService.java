@@ -40,7 +40,7 @@ public class UserService {
      * @return the newly created User object representing the doctor
      */
     public User addDoctor(String username, String email_address, String role, String name, String password) {
-        User user = new User(userArr.size(), username, email_address, role, name, password);
+        User user = new Doctor(userArr.size(), username, email_address, role, name, password);
         userArr.add(user);
         return user;
     }
@@ -56,7 +56,7 @@ public class UserService {
      * @return the newly created User object representing the patient
      */
     public User addPatient(String username, String email_address, String role, String name, String password) {
-        User user = new User(userArr.size(), username, email_address, role, name, password);
+        User user = new Patient(userArr.size(), username, email_address, role, name, password);
         userArr.add(user);
         return user;
     }

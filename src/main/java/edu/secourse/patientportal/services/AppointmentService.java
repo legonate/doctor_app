@@ -3,6 +3,7 @@ package edu.secourse.patientportal.services;
 import edu.secourse.patientportal.models.Appointment;
 import edu.secourse.patientportal.models.Doctor;
 import edu.secourse.patientportal.models.Patient;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class AppointmentService {
     private int nextAppointmentId = 1;
 
     /**
-     *creates a new appointment and adds it to the list
+     * Creates a new appointment and adds it to the list
      */
     public Appointment createAppointment(Patient patient, Doctor doctor, LocalDateTime dateTime) {
         Appointment appointment = new Appointment(nextAppointmentId++, patient, doctor, dateTime, "active");
@@ -22,7 +23,7 @@ public class AppointmentService {
     }
 
     /**
-     *cancels an appointment by its ID
+     * Cancels an appointment by its ID
      */
     public boolean cancelAppointment(int appointmentId) {
         for (Appointment appt : appointments) {
@@ -35,7 +36,7 @@ public class AppointmentService {
     }
 
     /**
-     *modifies an appointment’s date and time
+     * Modifies an appointment’s date and time
      */
     public boolean modifyAppointment(int appointmentId, LocalDateTime newDateTime) {
         for (Appointment appt : appointments) {
@@ -48,7 +49,7 @@ public class AppointmentService {
     }
 
     /**
-     *retrieves all appointments for a patient
+     * Retrieves all appointments for a patient
      */
     public List<Appointment> getAppointmentsForPatient(Patient patient) {
         List<Appointment> result = new ArrayList<>();
@@ -61,7 +62,7 @@ public class AppointmentService {
     }
 
     /**
-     *retrieves all appointments for a doctor
+     * Retrieves all appointments for a doctor
      */
     public List<Appointment> getAppointmentsForDoctor(Doctor doctor) {
         List<Appointment> result = new ArrayList<>();
@@ -74,14 +75,14 @@ public class AppointmentService {
     }
 
     /**
-     *removes an appointment by its ID
+     * Removes an appointment by its ID
      */
     public boolean removeAppointment(int appointmentId) {
         return appointments.removeIf(a -> a.getAppointmentId() == appointmentId);
     }
 
     /**
-     *returns all appointments in the system
+     * Returns all appointments in the system
      */
     public List<Appointment> getAllAppointments() {
         return new ArrayList<>(appointments);
