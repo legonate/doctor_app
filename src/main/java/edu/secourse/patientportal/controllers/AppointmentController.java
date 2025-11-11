@@ -19,16 +19,23 @@ public class AppointmentController {
     }
 
     public void createAppointment(Patient patient, Doctor doctor) {
-        System.out.print("Enter appointment date and time: ");
-        String dateTimeStr = sc.nextLine();
+        LocalDateTime dateTime = null;
+        boolean validInput = false;
 
-        try {
-            LocalDateTime dateTime = LocalDateTime.parse(dateTimeStr, dateTimeFormatter);
-            Appointment appointment = us.createAppointment(patient, doctor, dateTime);
-            System.out.println("Appointment created successfully: " + appointment.getAppointmentId());
-        } catch (DateTimeParseException e) {
-            System.out.println("Invalid date/time. Please use yyyy-MM-dd HH:mm");
+        while (!validInput) {
+            System.out.print("Enter appointment date and time (yyyy-MM-dd HH:mm): ");
+            String dateTimeStr = sc.nextLine();
+
+            try {
+                dateTime = LocalDateTime.parse(dateTimeStr, dateTimeFormatter);
+                validInput = true;
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date/time format. Please use yyyy-MM-dd HH:mm");
+            }
         }
+
+        Appointment appointment = us.createAppointment(patient, doctor, dateTime);
+        System.out.println("Appointment created successfully: " + appointment.getAppointmentId());
     }
 
     /**
@@ -88,5 +95,38 @@ public class AppointmentController {
         System.out.println("Doctor: " + appointment.getDoctor().getName());
         System.out.println("Date/Time: " + appointment.getDateTime().format(dateTimeFormatter));
         System.out.println("Status: " + appointment.getStatus());
+    }
+
+    /**
+     * Modifies an existing appointment's date and time
+     */
+    public void modifyAppointment() {
+        System.out.print("Enter appointment ID to modify: ");
+        try {
+            int appointmentId = Integer.parseInt(sc.nextLine());
+            
+            LocalDateTime newDateTime = null;
+            boolean validInput = false;
+
+            while (!validInput) {
+                System.out.print("Enter new date and time (yyyy-MM-dd HH:mm): ");
+                String dateTimeStr = sc.nextLine();
+
+                try {
+                    newDateTime = LocalDateTime.parse(dateTimeStr, dateTimeFormatter);
+                    validInput = true;
+                } catch (DateTimeParseException e) {
+                    System.out.println("Invalid date/time format. Please use yyyy-MM-dd HH:mm");
+                }
+            }
+
+            if (us.modifyAppointment(appointmentId, newDateTime)) {
+                System.out.println("Appointment modified successfully");
+            } else {
+                System.out.println("Appointment not found or already cancelled");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid appointment ID");
+        }
     }
 }
