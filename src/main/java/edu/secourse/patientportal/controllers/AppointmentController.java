@@ -129,4 +129,18 @@ public class AppointmentController {
             System.out.println("Invalid appointment ID");
         }
     }
+
+    /**
+     * Lists appointments for a specific user by account number.
+     * Works for both patients and doctors.
+     */
+    public void listAppointmentsForUser(User user) {
+        if (user instanceof Patient) {
+            listAppointmentsForPatient((Patient) user);
+        } else if (user instanceof Doctor) {
+            listAppointmentsForDoctor((Doctor) user);
+        } else {
+            System.out.println("User is neither a patient nor a doctor");
+        }
+    }
 }
