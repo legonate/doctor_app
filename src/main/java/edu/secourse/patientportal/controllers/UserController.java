@@ -263,4 +263,34 @@ public class UserController {
             System.out.println("Invalid account number");
         }
     }
+
+    /**
+     * Prompts for a user's account number and lists their appointments.
+     *
+     * @param ac the AppointmentController to use for listing appointments
+     */
+    public void listAppointmentsForUser(AppointmentController ac) {
+        System.out.print("Enter user account number: ");
+        try {
+            int accountNumber = Integer.parseInt(sc.nextLine());
+
+            // Find the user
+            User user = null;
+            for (User u : this.us.getUsers()) {
+                if (u.getAccountNumber() == accountNumber) {
+                    user = u;
+                    break;
+                }
+            }
+
+            if (user == null) {
+                System.out.println("User not found");
+                return;
+            }
+
+            ac.listAppointmentsForUser(user);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid account number");
+        }
+    }
 }

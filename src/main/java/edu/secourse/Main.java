@@ -45,7 +45,7 @@ public class Main {
                 case "create appointment" -> uc.createAppointmentMenu(ac);
                 case "modify appointment" -> ac.modifyAppointment();
                 case "cancel appointment" -> ac.cancelAppointment();
-                case "list appointments" -> ac.listAppointments();
+                case "list appointments" -> uc.listAppointmentsForUser(ac);
                 case "exit" -> continueProgram = false;
                 default -> System.out.println("Invalid input. Please choose from the options above");
             }
