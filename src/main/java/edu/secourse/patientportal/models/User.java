@@ -1,5 +1,4 @@
 package edu.secourse.patientportal.models;
-
 /**
  * Represents a user within the patient portal system.
  * Stores user account details such as username, email, name, role, and password.
@@ -11,7 +10,6 @@ public class User {
     private String role;
     private String name;
     private String password;
-
     /**
      * Constructs a new User object with the specified parameters.
      *
@@ -30,7 +28,6 @@ public class User {
         this.name = name;
         this.password = password;
     }
-
     /**
      * Returns the user's account number.
      *
@@ -39,7 +36,6 @@ public class User {
     public int getAccountNumber() {
         return account_number;
     }
-
     /**
      * Sets the user's account number.
      *
@@ -48,7 +44,6 @@ public class User {
     public void setAccountNumber(int account_number) {
         this.account_number = account_number;
     }
-
     /**
      * Returns the username.
      *
@@ -57,7 +52,6 @@ public class User {
     public String getUsername() {
         return username;
     }
-
     /**
      * Sets the username for this user.
      *
@@ -66,7 +60,6 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-
     /**
      * Returns the user's email address.
      *
@@ -75,7 +68,6 @@ public class User {
     public String getEmailAddress() {
         return email_address;
     }
-
     /**
      * Sets the user's email address.
      *
@@ -84,7 +76,6 @@ public class User {
     public void setEmailAddress(String email_address) {
         this.email_address = email_address;
     }
-
     /**
      * Returns the user's role.
      *
@@ -93,7 +84,6 @@ public class User {
     public String getRole() {
         return role;
     }
-
     /**
      * Sets the user's role.
      *
@@ -102,7 +92,6 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-
     /**
      * Returns the user's full name.
      *
@@ -111,7 +100,6 @@ public class User {
     public String getName() {
         return name;
     }
-
     /**
      * Sets the user's full name.
      *
@@ -120,7 +108,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
     /**
      * Returns the user's password.
      *
@@ -129,7 +116,6 @@ public class User {
     public String getPassword() {
         return password;
     }
-
     /**
      * Sets the user's password.
      *

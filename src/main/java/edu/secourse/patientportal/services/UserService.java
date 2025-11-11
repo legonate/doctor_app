@@ -60,5 +60,38 @@ public class UserService {
         userArr.add(user);
         return user;
     }
+
+    /**
+     * Removes a user from the user list.
+     *
+     * @param user the User object to remove
+     * @return true if the user was successfully removed, false if not found
+     */
+    public boolean deleteUser(User user) {
+        for (int i = 0; i < userArr.size(); i++) {
+            if (userArr.get(i).getAccountNumber() == user.getAccountNumber()) {
+                userArr.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Modifies an existing user in the user list.
+     * Replaces the user with the same account number with the provided user object.
+     *
+     * @param updatedUser the User object with updated information
+     * @return true if the user was successfully modified, false if not found
+     */
+    public boolean modifyUser(User updatedUser) {
+        for (int i = 0; i < userArr.size(); i++) {
+            if (userArr.get(i).getAccountNumber() == updatedUser.getAccountNumber()) {
+                userArr.set(i, updatedUser);
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
