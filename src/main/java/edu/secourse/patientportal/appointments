@@ -1,0 +1,84 @@
+package edu.secourse;
+
+
+
+import java.time.LocalDateTime;
+
+public class Appointment.java {
+    private static int counter = 1; // auto-generate unique IDs
+    private int appointmentId;
+    private String patientName;
+    private String doctorName;
+    private LocalDateTime startDateTime;
+    private String status; // active or canceled
+
+    // 
+    public Appointment(String patientName, String doctorName, LocalDateTime startDateTime) {
+        this.appointmentId = counter++;
+        this.patientName = patientName;
+        this.doctorName = doctorName;
+        this.startDateTime = startDateTime;
+        this.status = "active";
+    }
+
+    // Getters
+    public int getAppointmentId() {
+        return appointmentId;
+    }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public LocalDateTime getStartDateTime() {
+        return startDateTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    // Setters
+    public void setStartDateTime(LocalDateTime startDateTime) {
+        this.startDateTime = startDateTime;
+    }
+
+    public void cancel() {
+        this.status = "canceled";
+    }
+
+    public void activate() {
+        this.status = "active";
+    }
+
+
+    public String toString() {
+        return "Appointment #" + appointmentId +
+                "\nPatient: " + patientName +
+                "\nDoctor: " + doctorName +
+                "\nDate/Time: " + startDateTime +
+                "\nStatus: " + status;
+    }
+
+    
+    public static void main(String[] args) {
+        Appointment a1 = new Appointment("Justin Duncan", "Dr.George ", LocalDateTime.of(2025, 11, 10, 15, 0));
+        System.out.println(" Created Appointment");
+        System.out.println(a1);
+
+        // Cancel the appointment
+        a1.cancel();
+        System.out.println("\n After Cancelation");
+        System.out.println(a1);
+
+        // Create another appointment to show unique IDs
+        Appointment a2 = new Appointment("Mary Rose", "Dr. Robertson", LocalDateTime.of(2025, 11, 12, 10, 30));
+        System.out.println("\n Another Appointment ");
+        System.out.println(a2);
+    }
+}
+

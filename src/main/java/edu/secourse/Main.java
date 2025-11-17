@@ -1,28 +1,64 @@
 package edu.secourse;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import edu.secourse.patientportal.controllers.AppointmentController;
+import edu.secourse.patientportal.controllers.UserController;
+
+import java.util.Scanner;
+
+/**
+ * Main entry point for the Doctor App application.
+ * Provides a command-line interface for managing patients, doctors, and appointments.
+ */
 public class Main {
-<<<<<<< Updated upstream
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
-=======
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println(String.format("Hello and welcome!"));
->>>>>>> Stashed changes
 
         for (int i = 1; i <= 5; i++) {
             //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-<<<<<<< Updated upstream
-            IO.println("i = " + i);
-=======
             System.out.println("i = " + i);
->>>>>>> Stashed changes
         }
+
+    /**
+     * Main method that runs the Doctor App application.
+     * Initializes the scanner and controllers, then enters a loop to process user commands.
+     * Supports operations for managing users (patients/doctors) and appointments.
+     */
+    static void main() {
+        // Setup scanner & controllers
+        Scanner sc = new Scanner(System.in);
+        UserController uc = new UserController(sc);
+        AppointmentController ac = new AppointmentController(sc);
+
+        boolean continueProgram = true;
+
+        // TODO: Add login logic
+
+        System.out.println("Welcome to Doctor App!"); 
+        // Main loop
+        do {
+            // Admin view
+            System.out.println("\nPlease enter a command to continue");
+            System.out.print("""
+                    list patients | list doctors | create patient | create doctor | delete user | modify user | create appointment | modify appointment | cancel appointment | list appointments | exit
+                    > """);
+            String input = sc.nextLine();
+            switch (input) {
+                case "create patient" -> uc.createPatient();
+                case "create doctor" -> uc.createDoctor();
+                case "list patients" -> uc.listPatients();
+                case "list doctors" -> uc.listDoctors();
+                case "delete user" -> uc.deleteUser();
+                case "modify user" -> uc.modifyUser();
+                case "create appointment" -> uc.createAppointmentMenu(ac);
+                case "modify appointment" -> ac.modifyAppointment();
+                case "cancel appointment" -> ac.cancelAppointment();
+                case "list appointments" -> uc.listAppointmentsForUser(ac);
+                case "exit" -> continueProgram = false;
+                default -> System.out.println("Invalid input. Please choose from the options above");
+            }
+        } while (continueProgram);
     }
 }
