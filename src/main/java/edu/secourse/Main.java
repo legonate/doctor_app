@@ -10,7 +10,6 @@ import java.util.Scanner;
  * Provides a command-line interface for managing patients, doctors, and appointments.
  */
 public class Main {
-
     /**
      * Main method that runs the Doctor App application.
      * Initializes the scanner and controllers, then enters a loop to process user commands.
