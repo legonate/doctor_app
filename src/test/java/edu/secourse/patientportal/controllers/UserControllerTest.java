@@ -1,5 +1,6 @@
 package edu.secourse.patientportal.controllers;
 
+import edu.secourse.patientportal.models.Doctor;
 import edu.secourse.patientportal.models.Patient;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -65,7 +66,7 @@ class UserControllerTest {
 
     @Test
     void listPatients() {
-        String simInput = "create doctor\njohnPork\njohnpork@gmail.com\nPatient\nJohn Pork\nham1234";
+        String simInput = "johnPork\njohnpork@gmail.com\nPatient\nJohn Pork\nham1234";
         ByteArrayInputStream testIn = new ByteArrayInputStream(simInput.getBytes());
         Scanner sc = new Scanner(testIn);
         uc = new UserController(sc);
@@ -81,7 +82,7 @@ class UserControllerTest {
 
     @Test
     void listDoctors() {
-        String simInput = "create doctor\njohnPork\njohnpork@gmail.com\nPatient\nJohn Pork\nham1234";
+        String simInput = "johnPork\njohnpork@gmail.com\nDoctor\nJohn Pork\nham1234";
         ByteArrayInputStream testIn = new ByteArrayInputStream(simInput.getBytes());
         Scanner sc = new Scanner(testIn);
         uc = new UserController(sc);
@@ -89,15 +90,15 @@ class UserControllerTest {
         System.setOut(new PrintStream(testOut));
         System.setIn(testIn);
 
-        uc.createPatient();
-        uc.listPatients();
+        uc.createDoctor();
+        uc.listDoctors();
 
         assertTrue(testOut.toString().contains("John Pork"));
     }
 
     @Test
     void deleteUser() {
-        String simInput = "create doctor\njohnPork\njohnpork@gmail.com\nPatient\nJohn Pork\nham1234\n0";
+        String simInput = "johnPork\njohnpork@gmail.com\nPatient\nJohn Pork\nham1234\n0";
         ByteArrayInputStream testIn = new ByteArrayInputStream(simInput.getBytes());
         Scanner sc = new Scanner(testIn);
         uc = new UserController(sc);
@@ -133,8 +134,8 @@ class UserControllerTest {
 
 
         uc.createDoctor();
-        Patient t = uc.findPatientByAccountNumber(0);
-        assertTrue(t.getName().equals("Bob Jonson"));
+        Doctor t = uc.findDoctorByAccountNumber(0);
+        assertEquals("Bob Jonson", t.getName());
     }
 
     @Test
@@ -146,7 +147,7 @@ class UserControllerTest {
 
         uc.createPatient();
         Patient t = uc.findPatientByAccountNumber(0);
-        assertTrue(t.getName().equals("Bob Jonson"));
+        assertEquals("Bob Jonson", t.getName());
     }
 
     @Test
