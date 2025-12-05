@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"edu.secourse"},{"l":"edu.secourse.patientportal.controllers"},{"l":"edu.secourse.patientportal.models"},{"l":"edu.secourse.patientportal.services"}];updateSearchResults();
